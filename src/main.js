@@ -9,7 +9,6 @@ class Main extends React.Component {
       <CardColumns>
         <div>
           {HornsData.map((item, idx) => {
-            console.log(idx);
             return (
               <HornedBeasts
                 key={idx}
