@@ -8,16 +8,16 @@ class Main extends React.Component{
     return(
       <CardColumns>
         <div>
-          {HornsData.map(item=>{
+          {HornsData.map((item, index)=>{
             return (
               <HornedBeasts
+                key = {index}
                 title = {item.title}
                 imageUrl = {item.image_url}
                 description = {item.description}
               />
             );
           })}
-                
         </div>
       </CardColumns>
     );
