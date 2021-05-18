@@ -17,12 +17,16 @@ class HornedBeasts extends React.Component{
     });
   }
 
+  sendInfo = () =>{
+    this.props.handleShow(this.props.title);
+  }
+
   render(){
     return(
       <div>
         <Card style={{ width: '18rem'}}>
-          <Card.Img variant="top" src={this.props.imageUrl}/>
-          <Card.Body>
+          <Card.Img onClick={this.sendInfo} variant="top" src={this.props.imageUrl}/>
+          <Card.Body >
             <Card.Title>{this.props.title}</Card.Title>
             <Card.Text>
             ❤️: {this.state.votes}
