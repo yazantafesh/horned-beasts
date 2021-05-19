@@ -10,7 +10,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      HornsData:this.props.HornsData,
+      HornsData:HornsData,
       savedElement:{},
       display: false,
     };
@@ -33,13 +33,18 @@ class App extends React.Component{
       display: true,
     });
   }
+  showFilteredData = (newHorns)=>{
+    this.setState({
+      HornsData : newHorns,
+    });
+  }
 
   render(){
 
     return(
       <div>
         <Header/>
-        <Main HornsData = {HornsData} handleShow = {this.handleShow}/>
+        <Main HornsData = {this.state.HornsData} handleShow = {this.handleShow} showFilteredData ={this.showFilteredData}/>
         <SelectedBeast display={this.state.display} handleClose = {this.handleClose} element = {this.state.savedElement}/>
         <Footer/>
       </div>
