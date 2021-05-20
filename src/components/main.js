@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import React from 'react';
 import HornedBeasts from './horned-beasts';
 import HornsData from './data.json';
@@ -8,19 +9,17 @@ class Main extends React.Component {
 
   updateList = (event) =>{
     let numOfHorns = parseInt(event.target.value);
-    let allHorns = HornsData;
     let result;
     if (numOfHorns) {
-      result=allHorns.filter(element =>{
-        if (element.horns === numOfHorns) {
+      result=HornsData.filter(element =>{
+        if (parseInt(element.horns) == numOfHorns) {
           return element;
         }
       });
     }else{
-      result=allHorns;
+      result=HornsData;
     }
     this.props.showFilteredData(result);
-    console.log(result);
   }
 
   render() {
@@ -47,7 +46,6 @@ class Main extends React.Component {
                   title={item.title}
                   imageUrl={item.image_url}
                   description={item.description}
-                  renderModal={this.props.renderModal}
                   handleShow={this.props.handleShow}
                 />
               );
